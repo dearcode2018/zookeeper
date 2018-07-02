@@ -1,0 +1,69 @@
+【项目信息】
+项目名称 : zookeeper
+中文名称 : Zookeeper
+项目版本 : version 1.0
+
+主要技术 : 
+
+项目描述 : 
+
+项目备注 : 
+
+【项目规划】
+
+1)
+
+https://blog.csdn.net/qiushisoftware/article/details/79043379
+https://www.cnblogs.com/hapjin/p/5982606.html
+
+
+
+2)
+
+3)
+
+4)
+
+5)
+Zookeeper Windows环境
+1) 下载*.tar.gz 包，解压
+2) 在主目录下创建data目录
+3) cd conf 拷贝一个份cfg文件命名为 zoo.cfg
+4) cd bin 目录 zkServer.cmd 运行即可，无需加参数，linux环境下脚本要加参数.
+5) 打开zooInspector cd D:\software\ZooInspector\build 
+运行 java -jar zookeeper-dev-ZooInspector.jar
+输入 Connect String: localhost:2181 单击连接即可.
+6) 
+
+zookeeper 客户端常用命令
+1) 创建节点: zkCli create /test "abc"
+持久节点: zkCli create -p(默认) /test "abc"
+顺序节点: zkCli create -s /test "abc"
+临时节点: zkCli create -e /test "abc"
+2) 删除节点: zkCli delete /test
+递归(recursive)删除节点: zkCli rmr /test
+节点下有子节点，须用递归删除
+3) 修改节点: zkCli set /test "abc2"
+4) 查看节点: zkCli get /test
+5) 搜索节点: zkCli create /test "abc"
+6) 查找根目录: zkCli ls /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
