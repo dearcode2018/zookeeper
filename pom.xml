@@ -25,6 +25,7 @@
 	<properties>
 		<zookeeper.version>3.5.4-beta</zookeeper.version>
 		<jdk.version>1.8</jdk.version>
+		<spring.version>5.1.2.RELEASE</spring.version>			
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.version>0.0.1</maven.version>
 		<maven.plugin.compiler.version>3.3</maven.plugin.compiler.version>

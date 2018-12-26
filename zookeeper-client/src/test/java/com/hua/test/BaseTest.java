@@ -7,17 +7,17 @@
  */
 package com.hua.test;
 
-// 静态导入
 import java.util.concurrent.CountDownLatch;
 
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 
 import com.hua.log.BaseLog;
 
@@ -28,45 +28,15 @@ import com.hua.log.BaseLog;
  * @author qye.zheng
  * BaseTest
  */
-//@RunWith()
+//@RunWith(JUnitPlatform.class)
+//@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@DisplayName("BaseTest")
 public class BaseTest extends BaseLog {
 	
-	protected String connectString = "127.0.0.1:2181";
+	/** 多个用逗号隔开 */
+	protected String connectString = "192.168.5.11:2181,192.168.5.12:2181,192.168.5.13:2181";
 	
 	protected String path;
-	
-	/**
-	 * 
-	 * 描述: [所有测试]开始之前运行
-	 * @author qye.zheng
-	 * 
-	 */
-	@BeforeClass
-	public static void beforeClass() {
-		System.out.println("beforeClass()");
-	}
-	
-	/**
-	 * 
-	 * 描述: [所有测试]结束之后运行
-	 * @author qye.zheng
-	 * 
-	 */
-	@AfterClass
-	public static void afterClass() {
-		System.out.println("afterClass()");
-	}
-	
-	/**
-	 * 
-	 * 描述: [每个测试-方法]开始之前运行
-	 * @author qye.zheng
-	 * 
-	 */
-	@Before
-	public void beforeMethod() {
-		System.out.println("beforeMethod()");
-	}
 	
 	/**
 	 * 
@@ -110,11 +80,48 @@ public class BaseTest extends BaseLog {
 	
 	/**
 	 * 
+	 * 描述: [所有测试]开始之前运行
+	 * @author qye.zheng
+	 * 
+	 */
+	@DisplayName("beforeClass")
+	@BeforeAll
+	public static void beforeClass() {
+		System.out.println("beforeClass()");
+	}
+	
+	/**
+	 * 
+	 * 描述: [所有测试]结束之后运行
+	 * @author qye.zheng
+	 * 
+	 */
+	@DisplayName("afterClass")
+	@AfterAll
+	public static void afterClass() {
+		System.out.println("afterClass()");
+	}
+	
+	/**
+	 * 
+	 * 描述: [每个测试-方法]开始之前运行
+	 * @author qye.zheng
+	 * 
+	 */
+	@DisplayName("beforeMethod")
+	@BeforeEach
+	public void beforeMethod() {
+		System.out.println("beforeMethod()");
+	}
+	
+	/**
+	 * 
 	 * 描述: [每个测试-方法]结束之后运行
 	 * @author qye.zheng
 	 * 
 	 */
-	@After
+	@DisplayName("afterMethod")
+	@AfterEach
 	public void afterMethod() {
 		System.out.println("afterMethod()");
 	}
